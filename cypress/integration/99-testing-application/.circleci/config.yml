@@ -5,9 +5,9 @@ workflows:
   build:
     jobs:
       - cypress/install:
-          build: npm run install:todomvc
+          build: npm run install:todomvc 
       - cypress/run:
           requires:
             - cypress/install
-          start: npm start
-          record: true
+          start:  npm start
+ 
