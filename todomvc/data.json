@@ -1,4 +1,9 @@
 {
   "todos": [],
-  "accounts": []
+  "accounts": [
+    {
+      "email": "admin@udemy-cypress-course.com",
+      "password": "admin"
+    }
+  ]
 }

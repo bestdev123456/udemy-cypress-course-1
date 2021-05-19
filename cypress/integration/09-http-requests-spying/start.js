@@ -3,11 +3,22 @@
 beforeEach( () => {
 
   cy
+
+    .server();
+
+    cy
+    .route ('GET','/todos').as('todosList')
+    .route ('POST','/todos').as('todosCreate');
+    cy
+
     .visit('localhost:3000');
 
 });
 
-it.only('has no elements', () => {
+it('has no elements', () => {
+
+  cy
+  .wait('@todosList');
 
   cy
     .get('.todo')
@@ -15,6 +26,18 @@ it.only('has no elements', () => {
   
 });
 
-it('adds an item to the list', () => {
+it.only('adds an item to the list', () => {
 
+  cy.get('.new-todo')
+    .type('wash dishes{enter}');
+
+    cy
+    .wait('@todosCreate')
+    .then(todoItem => {
+
+      expect(todoItem.status).to.eq(201);
+      expect(todoItem.response.body.title).to.eq('wash dishes');
+      expect(todoItem.response.body.completed).to.be.false;
+
+    });
 });
