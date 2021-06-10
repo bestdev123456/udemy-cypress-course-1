@@ -3,6 +3,9 @@
 it('resets database before opening app', () => {
 
   cy
-    .visit('localhost:3000');
+  .task ('resetDatabase');
+
+  cy
+  .visit('localhost:3000');
   
 });

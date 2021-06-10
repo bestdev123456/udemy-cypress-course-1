@@ -1,9 +1,15 @@
 {
-  "todos": [],
-  "accounts": [
+  "todos": [
     {
-      "email": "admin@udemy-cypress-course.com",
-      "password": "admin"
+      "title": "buy milk",
+      "completed": false,
+      "id": "4237483959"
+    },
+    {
+      "title": "wash dishes",
+      "completed": false,
+      "id": "9201264488"
     }
-  ]
+  ],
+  "accounts": []
 }
